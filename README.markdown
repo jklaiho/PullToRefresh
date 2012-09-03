@@ -9,7 +9,7 @@ This fork requires Xcode >= 4.4 (automatic property synthesizing) and iOS >= 5 (
 
 * Supports (and requires the use of) Automatic Reference Counting.
 * No longer a UITableViewController subclass, but instead a UIViewController
-  <UIScrollViewDelegate>. Use it in any view controller with a UITableView!
+  \<UIScrollViewDelegate\>. Use it in any view controller with a UITableView!
 * Code modernized and cleaned up.
 
 ![](http://s3.amazonaws.com/leah.baconfile.com/blog/refresh-small-1.png)
@@ -36,13 +36,13 @@ method. Failure to do this will raise an exception when scrolling the table view
 5. If your view controller subclass implements any of the following
 UIScrollViewDelegate methods:
 
-  * -scrollViewDidBeginDragging:
-  * -scrollViewDidScroll:
-  * -scrollViewDidEndDragging:
+  * `-scrollViewDidBeginDragging:`
+  * `-scrollViewDidScroll:`
+  * `-scrollViewDidEndDragging:`
 
-  ... be sure to call [super nameOfMethod] in your implementations.
+  ... be sure to call `[super nameOfMethod]` in your implementations.
 
-6. Implement the actual refresh functionality by overriding the -refresh:
+6. Implement the actual refresh functionality by overriding the `-refresh:`
 method.
 
 7. (optional) Customize the refresh arrow by using a different arrow.png file
