@@ -30,7 +30,7 @@ and [EGOTableViewPullRefresh](http://github.com/enormego/EGOTableViewPullRefresh
 3. Create a view controller that is a subclass of PullRefreshViewController.
 
 4. Run `[self setTableViewToRefresh:aTableView]` on the UITableView for which you
-wish to enable pull-to-refresh. This is probably best done in your `-viewDidLoad:`
+wish to enable pull-to-refresh. This is probably best done in your `-viewDidLoad`
 method. Failure to do this will raise an exception when scrolling the table view.
 
 5. If your view controller subclass implements any of the following
@@ -39,11 +39,11 @@ UIScrollViewDelegate methods, be sure to call `[super nameOfMethod]` in your imp
   * `-scrollViewDidScroll:`
   * `-scrollViewDidEndDragging:`
 
-6. Implement the actual refresh functionality by overriding the `-refresh:`
+6. Implement the actual refresh functionality by overriding the `-refresh`
 method.
 
 7. (optional) Customize the refresh arrow by using a different arrow.png file
 (try and keep the same image file dimensions). Customize the strings shown
-in the pulled-down view by overriding `-setupStrings:`
+in the pulled-down view by overriding `-setupStrings`
 
 Enjoy!
