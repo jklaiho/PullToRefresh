@@ -47,4 +47,9 @@
 // Override for your actual refresh action
 - (void)refresh;
 
+// Remember to call this at the end of your -refresh implementation.
+// Safe to call even if you're not currently in pull-to-refresh mode,
+// which is useful for DRY code with other table refreshing mechanisms.
+- (void)stopLoading;
+
 @end

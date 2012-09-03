@@ -40,7 +40,6 @@
 @property (retain, nonatomic) UIActivityIndicatorView *refreshSpinner;
 
 - (void)startLoading;
-- (void)stopLoading;
 
 @end
 
@@ -124,6 +123,8 @@
 
 - (void)stopLoading
 {
+    if (!isLoadingNewItems) return;
+    
     isLoadingNewItems = NO;
     
     // Hide the header
