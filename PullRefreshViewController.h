@@ -1,9 +1,9 @@
 //
-//  PullRefreshTableViewController.h
+//  PullRefreshViewController.h (was: PullRefreshTableViewController.h)
 //  Plancast
 //
 //  Created by Leah Culver on 7/2/10.
-//  Copyright (c) 2010 Leah Culver
+//  Copyright (c) 2010 Leah Culver (Modifications by JK Laiho)
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -30,30 +30,21 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PullRefreshTableViewController : UITableViewController {
-    UIView *refreshHeaderView;
-    UILabel *refreshLabel;
-    UIImageView *refreshArrow;
-    UIActivityIndicatorView *refreshSpinner;
-    BOOL isDragging;
-    BOOL isLoading;
-    NSString *textPull;
-    NSString *textRelease;
-    NSString *textLoading;
-}
+@interface PullRefreshViewController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, retain) UIView *refreshHeaderView;
-@property (nonatomic, retain) UILabel *refreshLabel;
-@property (nonatomic, retain) UIImageView *refreshArrow;
-@property (nonatomic, retain) UIActivityIndicatorView *refreshSpinner;
-@property (nonatomic, copy) NSString *textPull;
-@property (nonatomic, copy) NSString *textRelease;
-@property (nonatomic, copy) NSString *textLoading;
+// Weak, because the table view this refers to should already be retained elsewhere.
+// Run -setTableViewToRefresh: in your VC subclass, this will also set up the extra
+// pull-to-refresh subviews on top of the existing table cells.
+@property (weak, nonatomic) UITableView *tableViewToRefresh;
+
+// Override -setupStrings to properly customize these strings
+@property (copy, nonatomic) NSString *textPull;
+@property (copy, nonatomic) NSString *textRelease;
+@property (copy, nonatomic) NSString *textLoading;
 
 - (void)setupStrings;
-- (void)addPullToRefreshHeader;
-- (void)startLoading;
-- (void)stopLoading;
+
+// Override for your actual refresh action
 - (void)refresh;
 
 @end
