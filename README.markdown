@@ -34,13 +34,10 @@ wish to enable pull-to-refresh. This is probably best done in your `-viewDidLoad
 method. Failure to do this will raise an exception when scrolling the table view.
 
 5. If your view controller subclass implements any of the following
-UIScrollViewDelegate methods:
-
+UIScrollViewDelegate methods, be sure to call `[super nameOfMethod]` in your implementations:
   * `-scrollViewDidBeginDragging:`
   * `-scrollViewDidScroll:`
   * `-scrollViewDidEndDragging:`
-
-  ... be sure to call `[super nameOfMethod]` in your implementations.
 
 6. Implement the actual refresh functionality by overriding the `-refresh:`
 method.
